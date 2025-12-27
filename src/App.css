@@ -1,0 +1,155 @@
+/* ===== Root & Layout ===== */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Remove overflow: hidden from #root to allow scrolling */
+}
+
+/* ===== Smooth Scrolling ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ===== Selection Styling ===== */
+::selection {
+  background-color: rgba(14, 165, 233, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(14, 165, 233, 0.3);
+  color: white;
+}
+
+/* ===== Custom Animations ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Improved Focus States ===== */
+*:focus-visible {
+  outline: 2px solid rgba(14, 165, 233, 0.6);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* ===== Loading States ===== */
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ===== Section Spacing ===== */
+section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* ===== Container Max Widths ===== */
+.container-sm {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-md {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-lg {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-xl {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== Accessibility ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  /* keep overflow: hidden for .sr-only only, not global */
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  #root {
+    background: white;
+    color: black;
+  }
+}

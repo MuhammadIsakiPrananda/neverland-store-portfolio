@@ -1,0 +1,11 @@
+# Gitignore for SSL certificates
+# Never commit SSL certificates to version control
+
+# SSL Certificates
+*.pem
+*.crt
+*.key
+*.csr
+
+# Keep only the README
+!README.md
